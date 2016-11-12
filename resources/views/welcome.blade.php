@@ -21,7 +21,7 @@
                     <label for="password">Password</label>
                     <input class="form-control" type="password" name="password" id="password">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name="button">Submit</button>
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
             </form>
         </div>
