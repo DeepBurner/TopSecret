@@ -14,11 +14,11 @@
                     <input class="form-control" type="text" name="email" id="email">
                 </div>
                 <div class="form-group">
-                    <label for="Username">Username</label>
+                    <label for="username">Username</label>
                     <input class="form-control" type="text" name="username" id="username">
                 </div>
                 <div class="form-group">
-                    <label for="email">Password</label>
+                    <label for="password">Password</label>
                     <input class="form-control" type="password" name="password" id="password">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
