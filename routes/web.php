@@ -63,8 +63,9 @@ Route::get('/logout', [
     'as' => 'logout'
 ]);
 
-Route::post('/edit', function (\Illuminate\Http\Request $request) {
-    return response()->json(['message' => $request['postId']]);
-})->name('edit');
+Route::post('/edit', [
+    'uses' => 'PostController@postEditPost',
+    'as' => 'edit'
+]);
 
 
