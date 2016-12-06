@@ -2,6 +2,7 @@
 
 @section('content')
     @include('includes.message-block')
+    <div class="col-md-8">
     <section class="row new-post">
         <div class="col-md-6 col-md-offset-3">
             <header><h3>What do you have to say?</h3></header>
@@ -24,8 +25,8 @@
                         Posted by {{ $post->user->username }} on {{ $post->created_at }}
                     </div>
                     <div class="interaction">
-                        <a href="#">Like</a> |
-                        <a href="#">Dislike</a>
+                        <a href="#" class="like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'You like this' : 'Like' : 'Like'}}</a> |
+                        <a href="#" class="like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You dont like this' : 'Dislike' : 'Dislike'}}</a>
                         @if(Auth::user() == $post->user)
                             |
                             <a href="#" class="edit">Edit</a> |
@@ -37,6 +38,22 @@
 
         </div>
     </section>
+    </div>
+
+
+
+    <div class="col-md-4">
+        <div class="row userblock">
+            <h3>{{ $user->username }}</h3>
+        </div>
+        <div class="row">
+            <ul>
+                @foreach($fields as $field)
+                    <li><a href="{{ route('field', ['field_name' => $field->name]) }}">{{ $field->name }}</a></li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
 
     <div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
         <div class="modal-dialog" role="document">
@@ -63,6 +80,7 @@
 
     <script>
         var token = '{{ Session::token() }}';
-        var url = '{{ route('edit') }}';
+        var urlEdit = '{{ route('edit') }}';
+        var urlLike = '{{ route('like') }}';
     </script>
 @endsection

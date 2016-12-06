@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ route('dashboard') }}">Bijinet</a>
+                <a class="navbar-brand" href="{{ route('dashboard') }}">Top Secret</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -18,6 +18,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ route('logout') }}">Logout</a></li>
                     <li><a href="{{ route('account') }}">Account</a></li>
+                    <li><a href="">Catalog</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

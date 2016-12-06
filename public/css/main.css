@@ -42,3 +42,7 @@
 .error, .success {
     text-align: center;
 }
+
+.userblock{
+    border: 1px solid #a21b24;
+}
