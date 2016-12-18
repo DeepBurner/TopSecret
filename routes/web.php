@@ -29,6 +29,9 @@ Route::get('/', function () {
     return view('welcome');
 }) -> name('home');
 
+Route::get('/register', function () {
+    return view('register');
+}) -> name('register');
 
 Route::post('/signup', [
     'uses' => 'UserController@postSignUp',
