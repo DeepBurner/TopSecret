@@ -11,15 +11,29 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="{{ route('dashboard') }}">Top Secret</a>
-                <a class="navbar-brand" href="{{ route('blog') }}">Blog</a>
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ route('blog') }}">Blog</a></li>
+                    <li><a href="#">Catalog</a></li>
+                    <li><a href="#">Send Feedback</a></li>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left" action="" method="post">
+                    <div class="form-group" >
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ route('logout') }}">Logout</a></li>
-                    <li><a href="{{ route('account') }}">Account</a></li>
-                    <li><a href="">Catalog</a></li>
+                    @if (Auth::guest())
+                        <li><a href="#">Sign in</a></li>
+                    @else
+                        <li><a href="{{ route('logout') }}">Logout</a></li>
+                        <li><a href="{{ route('account') }}">{{ Auth::user()->username }}</a></li>
+                    @endif
+
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
