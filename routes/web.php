@@ -96,9 +96,12 @@ Route::post('/like', [
     'middleware' => 'auth'
 ]);
 
-Route::get('/{field_name}', [
+Route::get('/fields/{field_name}', [
     "uses" => "FieldsController@getFieldPage",
     "as" => "field"
 ]);
 
-
+Route::get('/blog', [
+    'uses' => 'BlogPostController@getBlog',
+    'as' => 'blog'
+]);
