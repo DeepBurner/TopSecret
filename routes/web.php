@@ -63,37 +63,45 @@ Route::get('/delete-post/{post_id}', [
 
 Route::get('/logout', [
    'uses' => 'UserController@getLogout',
-    'as' => 'logout'
+    'as' => 'logout',
 ]);
 
 Route::get('/account', [
     'uses' => 'UserController@getAccount',
-    'as' => 'account'
+    'as' => 'account',
+    'middleware' => 'auth'
 ]);
 
 Route::post('/updateaccount', [
     'uses' => 'UserController@postSaveAccount',
-    'as' => 'account.save'
+    'as' => 'account.save',
+    'middleware' => 'auth'
 ]);
 
 Route::get('/userimage/{filename}', [
     'uses' => 'UserController@getUserImage',
-    'as' => 'account.image'
+    'as' => 'account.image',
+    'middleware' => 'auth'
 ]);
 
 Route::post('/edit', [
     'uses' => 'PostController@postEditPost',
-    'as' => 'edit'
+    'as' => 'edit',
+    'middleware' => 'auth'
 ]);
 
 Route::post('/like', [
    'uses' => 'PostController@postLikePost',
-    'as' => 'like'
+    'as' => 'like',
+    'middleware' => 'auth'
 ]);
 
-Route::get('/{field_name}', [
+Route::get('/fields/{field_name}', [
     "uses" => "FieldsController@getFieldPage",
     "as" => "field"
 ]);
 
-
+Route::get('/blog', [
+    'uses' => 'BlogPostController@getBlog',
+    'as' => 'blog'
+]);

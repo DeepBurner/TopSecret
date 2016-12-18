@@ -7,7 +7,7 @@ use App\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PostController extends Controller
+class FieldsController extends Controller
 {
     public function getFieldPage($field){
         return view('field', ['field' => $field]);

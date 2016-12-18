@@ -28,4 +28,19 @@
             </form>
         </div>
     </div>
+    <div class="row">
+        <h3>Learn Things</h3>
+        <p>You can learn about many fields here.</p>
+        <p>An image from catalog page.</p>
+    </div>
+    <div class="row">
+        <h3>Find About Good Resources</h3>
+        <p>If you are interested in a field, you can see reviews of resources about that field.</p>
+        <p>An image from the view of a field.</p>
+    </div>
+    <div class="row">
+        <h3>Share With Your Friends</h3>
+        <p>You can share your experiences with your friends.</p>
+        <p>An image from dashboard.</p>
+    </div>
 @endsection
