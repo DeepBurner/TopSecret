@@ -43,17 +43,19 @@
 
 
     <div class="col-md-4">
-        <div class="row userblock">
-            <h3>{{ $user->username }}</h3>
-        </div>
-        <div class="row">
-            <ul>
-                @foreach($fields as $field)
-                    <li><a href="{{ route('field', ['field_name' => $field->name]) }}">{{ $field->name }}</a></li>
-                @endforeach
-            </ul>
+        <div class="panel panel-default">
+            <div class="panel-heading"><h2>{{ $user->username }}</h2></div>
+            <div class="panel-body">
+                <ul>
+                    @foreach($fields as $field)
+                        <li><a href="{{ route('field', ['field_name' => $field->name]) }}">{{ $field->name }}</a></li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </div>
+
+
 
     <div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
         <div class="modal-dialog" role="document">

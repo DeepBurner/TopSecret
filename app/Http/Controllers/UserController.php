@@ -55,6 +55,10 @@ class UserController extends Controller {
     }
 
     public function getAccount(){
+        return view('account_msg', ['user' => Auth::user()]);
+    }
+
+    public function getReal(){
         return view('account', ['user' => Auth::user()]);
     }
 

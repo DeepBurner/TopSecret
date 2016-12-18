@@ -66,7 +66,7 @@ Route::get('/logout', [
     'as' => 'logout',
 ]);
 
-Route::get('/account', [
+Route::get('/account_settings', [
     'uses' => 'UserController@getAccount',
     'as' => 'account',
     'middleware' => 'auth'
@@ -104,4 +104,10 @@ Route::get('/fields/{field_name}', [
 Route::get('/blog', [
     'uses' => 'BlogPostController@getBlog',
     'as' => 'blog'
+]);
+
+Route::get('/change_settings', [
+    'uses' => 'UserController@getReal',
+    'as' => 'account_real',
+    'middleware' => 'auth'
 ]);

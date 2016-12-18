@@ -31,7 +31,7 @@
                         <li><a href="#">Sign in</a></li>
                     @else
                         <li><a href="{{ route('logout') }}">Logout</a></li>
-                        <li><a href="{{ route('account') }}">{{ Auth::user()->username }}</a></li>
+                        <li><a href="{{ route('account_real') }}">{{ Auth::user()->username }}</a></li>
                     @endif
 
                 </ul>
