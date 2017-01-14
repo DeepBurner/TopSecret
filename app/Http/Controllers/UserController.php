@@ -29,6 +29,10 @@ class UserController extends Controller {
         $user->username = $username;
         $user->password = $password;
 
+        $user->bio = '';
+        $user->location = '';
+        $user->name = '';
+
         $user->save();
         Auth::login($user);
 
