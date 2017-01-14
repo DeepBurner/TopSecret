@@ -68,10 +68,14 @@ class UserController extends Controller {
 
     public function postSaveAccount(Request $request){
         $this->validate($request, [
-            'username' => 'required|unique:users|max:30'
+            'name' => 'max:30',
+            'bio' => 'max:140',
+            'location' => 'max:30'
         ]);
         $user = Auth::user();
-        $user->username = $request['username'];
+        $user->name = $request['name'];
+        $user->bio = $request['bio'];
+        $user->location = $request['location'];
         $user->update();
 
         $file = $request->file('image');

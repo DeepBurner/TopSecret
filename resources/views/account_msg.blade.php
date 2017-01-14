@@ -10,8 +10,16 @@
             <header><h3>Your Account</h3></header>
             <form action="{{ route('account.save') }}" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="username">First Name</label>
-                    <input type="text" name="username" class="form-control" value="{{ $user->username }}" id="username">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" value="{{ $user->name }}" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" name="location" class="form-control" value="{{ $user->location }}" id="location">
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <input type="text" name="bio" class="form-control" value="{{ $user->bio }}" id="bio">
                 </div>
                 <div class="form-group">
                     <label for="image">Image (only .jpg)</label>

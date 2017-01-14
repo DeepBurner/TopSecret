@@ -10,7 +10,9 @@
             <div class="col-md-8">
                 <div class="page-header">
                     <h1>{{ $user->username }}</h1>
-                    <p>Email: {{ $user->email }}</p>
+                    <h6>{{ $user->name }}, {{ $user->location }}</h6>
+                    <p><b>Email:</b> {{ $user->email }}</p>
+                    <p><b>Bio: </b> {{ $user->bio }}</p>
                     <p><a href="{{ route('account') }}">Change account settings</a></p>
                 </div>
             </div>
