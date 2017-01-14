@@ -58,12 +58,13 @@ class UserController extends Controller {
         return redirect() -> route('home');
     }
 
-    public function getAccount(){
+    public function getAccountSet(){
         return view('account_msg', ['user' => Auth::user()]);
     }
 
-    public function getReal(){
-        return view('account', ['user' => Auth::user()]);
+    public function getAccount($username){
+        $userToDisplay = User::where('username', $username)->first();
+        return view('account', ['user' => $userToDisplay]);
     }
 
     public function postSaveAccount(Request $request){

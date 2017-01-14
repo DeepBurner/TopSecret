@@ -13,7 +13,10 @@
                     <h6>{{ $user->name }}, {{ $user->location }}</h6>
                     <p><b>Email:</b> {{ $user->email }}</p>
                     <p><b>Bio: </b> {{ $user->bio }}</p>
-                    <p><a href="{{ route('account') }}">Change account settings</a></p>
+                    @if(Auth::user() == $user)
+                        <p><a href="{{ route('account') }}">Change account settings</a></p>
+                    @endif
+
                 </div>
             </div>
             <div class="col-md-4">
