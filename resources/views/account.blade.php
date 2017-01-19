@@ -16,7 +16,6 @@
                     @if(Auth::user() == $user)
                         <p><a href="{{ route('account') }}">Change account settings</a></p>
                     @endif
-
                 </div>
             </div>
             <div class="col-md-4">

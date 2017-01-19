@@ -106,6 +106,13 @@ Route::get('/blog', [
     'as' => 'blog'
 ]);
 
+
+Route::get('/catalog',[
+    'uses' => 'FieldsController@getCatalog',
+    'as' => 'catalog',
+    'middlewate' => 'auth'
+]);
+
 Route::get('/{username}', [
     'uses' => 'UserController@getAccount',
     'as' => 'account_real',

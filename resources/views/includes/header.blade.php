@@ -13,7 +13,7 @@
                 <a class="navbar-brand" href="{{ route('dashboard') }}">Top Secret</a>
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('blog') }}">Blog</a></li>
-                    <li><a href="#">Catalog</a></li>
+                    <li><a href="{{ route('catalog') }}">Catalog</a></li>
                     <li><a href="#">Send Feedback</a></li>
                     </li>
                 </ul>

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Field extends Model
 {
     public function users(){
-        return $this->hasMany('App\User');
+        return $this->belongsToMany('App\User', 'user_field')->withTimestamps();
     }
 }
