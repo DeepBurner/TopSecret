@@ -48,7 +48,7 @@
             <div class="panel-body">
                 <ul>
                     @foreach($fields as $field)
-                        <li><a href="{{ route('field', ['field_name' => $field->name]) }}">{{ $field->name }}</a></li>
+                        <li><a href="{{ route('field', ['fieldname' => $field->name]) }}">{{ $field->name }}</a></li>
                     @endforeach
                 </ul>
             </div>

@@ -129,6 +129,13 @@ Route::get('/catalog',[
     'middlewate' => 'auth'
 ]);
 
+Route::post('sub_unsub',[
+    'uses' => 'FieldsController@getSub',
+    'as' => 'sub_unsub',
+    'middlewate' => 'auth'
+]);
+
+
 Route::get('/{username}', [
     'uses' => 'UserController@getAccount',
     'as' => 'account_real',

@@ -31,4 +31,18 @@ class FieldsController extends Controller
 
         return redirect() -> route('adminpnl') -> with(['message' => $message]);
     }
+
+    public function getSub(Request $request){
+        $fieldname = $request['fieldname'];
+        $field = Auth::user() -> fields()->where('name', $fieldname)->first();
+        if ($field == null){
+            $field = Field::where('name', $fieldname)->first();
+            Auth::user()->fields()->attach($field);
+        }
+        else{
+            Auth::user()->fields()->detach($field);
+        }
+        $field = Field::where('name', $fieldname)->first();
+        return view('field', ['field' => $field]);
+    }
 }
