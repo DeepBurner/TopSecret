@@ -107,6 +107,11 @@ Route::post('addfield', [
     'as' => 'panel.addfield'
 ]);
 
+Route::post('addblogpost', [
+    'uses' => 'BlogPostController@postNewBlogPost',
+    'as' => 'panel.addblogpost'
+]);
+
 Route::get('/fields/{field_name}', [
     "uses" => "FieldsController@getFieldPage",
     "as" => "field"
