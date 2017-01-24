@@ -96,6 +96,17 @@ Route::post('/like', [
     'middleware' => 'auth'
 ]);
 
+Route::get('/adminpanel', [
+    'uses' => 'UserController@getAdminPanel',
+    'as' => 'adminpnl',
+    'middleware' => 'auth'
+]);
+
+Route::post('addfield', [
+    'uses' => 'FieldsController@postAddField',
+    'as' => 'panel.addfield'
+]);
+
 Route::get('/fields/{field_name}', [
     "uses" => "FieldsController@getFieldPage",
     "as" => "field"

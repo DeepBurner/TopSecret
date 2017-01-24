@@ -21,4 +21,14 @@ class FieldsController extends Controller
         $user = Auth::user();
         return view('catalog', ['fields' => $fields, 'user' => $user]);
     }
+
+    public function postAddField(Request $request){
+        $field = new Field();
+        $field->name = $request['fieldname'];
+        $field -> save();
+
+        $message = 'Field added.';
+
+        return redirect() -> route('adminpnl') -> with(['message' => $message]);
+    }
 }
