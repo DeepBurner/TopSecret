@@ -91,4 +91,11 @@ class UserController extends Controller {
         $file = Storage::disk('local')->get($filename);
         return new Response($file, 200);
     }
+
+    public function getAdminPanel(){
+        if(Auth::user() == null || Auth::user()->user_level != 'admin'){
+            return redirect()->back();
+        }
+        return view('adminpanel');
+    }
 }

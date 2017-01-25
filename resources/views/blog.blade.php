@@ -15,21 +15,7 @@
 
 @section('content')
     <div class="col-md-12">
-        <section class="row new-blog-post">
-            <div class="col-md-6 col-md-offset-3">
-                <header><h3>Add new blog post</h3></header>
-                <form action="#">
-                    <div class="form-group">
-                        <textarea class="form-control" name="body" id="body"  rows="5" placeholder="Your post"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Create Post</button>
-                    <input type="hidden" value="{{ Session::token() }}" name="_token">
-                </form>
-            </div>
-        </section>
-    </div>
-    <div class="col-md-12">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-12 col-md-offset-3">
             <h3>Latest News</h3>
             <p>Here, you can find the latest news about the platform.</p>
         </div>

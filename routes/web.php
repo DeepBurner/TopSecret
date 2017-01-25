@@ -96,6 +96,22 @@ Route::post('/like', [
     'middleware' => 'auth'
 ]);
 
+Route::get('/adminpanel', [
+    'uses' => 'UserController@getAdminPanel',
+    'as' => 'adminpnl',
+    'middleware' => 'auth'
+]);
+
+Route::post('addfield', [
+    'uses' => 'FieldsController@postAddField',
+    'as' => 'panel.addfield'
+]);
+
+Route::post('addblogpost', [
+    'uses' => 'BlogPostController@postNewBlogPost',
+    'as' => 'panel.addblogpost'
+]);
+
 Route::get('/fields/{field_name}', [
     "uses" => "FieldsController@getFieldPage",
     "as" => "field"
@@ -112,6 +128,13 @@ Route::get('/catalog',[
     'as' => 'catalog',
     'middlewate' => 'auth'
 ]);
+
+Route::post('sub_unsub',[
+    'uses' => 'FieldsController@getSub',
+    'as' => 'sub_unsub',
+    'middlewate' => 'auth'
+]);
+
 
 Route::get('/{username}', [
     'uses' => 'UserController@getAccount',
