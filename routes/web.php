@@ -26,10 +26,18 @@ Route::group(['middleware' => ['web']], function () {
 */
 
 Route::get('/', function () {
+	if (Auth::check())
+	{
+		return Redirect::to('/dashboard');
+	}
     return view('welcome');
 }) -> name('home');
 
 Route::get('/register', function () {
+	if (Auth::check())
+	{
+		return Redirect::to('/dashboard');
+	}
     return view('register');
 }) -> name('register');
 
