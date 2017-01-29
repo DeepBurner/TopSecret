@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    @include('includes.message-block')
+    @include('includes.message-block-alert')
     <div class="col-md-8">
     <section class="row new-post">
         <div class="col-md-6 col-md-offset-3">
