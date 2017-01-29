@@ -1,46 +1,47 @@
-@extends('layouts.master')
+@extends('layouts.master-cover')
 
 @section('title')
-    Top Secret
+	Top Secret
 @endsection
 
-@section('content')
-    @include('includes.message-block')
-    <div class="row">
-        <div class="col-md-8">
-            <h3>What is this?</h3>
-            <p>There should be some explanation about the website here.</p>
-            <a href="{{ route('register') }}">Click here if you want to join.</a>
-        </div>
-        <div class="col-md-4">
-            <h3>Sign In</h3>
-            <form action="{{ route('signin') }}" method="post">
-                <div class="form-group">
-                    <label for="email">E-Mail</label>
-                    <input class="form-control" type="text" name="email" id="email">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input class="form-control" type="password" name="password" id="password">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <input type="hidden" name="_token" value="{{ Session::token() }}">
-            </form>
-        </div>
-    </div>
-    <div class="row">
-        <h3>Learn Things</h3>
-        <p>You can learn about many fields here.</p>
-        <p>An image from catalog page.</p>
-    </div>
-    <div class="row">
-        <h3>Find About Good Resources</h3>
-        <p>If you are interested in a field, you can see reviews of resources about that field.</p>
-        <p>An image from the view of a field.</p>
-    </div>
-    <div class="row">
-        <h3>Share With Your Friends</h3>
-        <p>You can share your experiences with your friends.</p>
-        <p>An image from dashboard.</p>
-    </div>
+@section('content')<!-- Header -->
+		<header id="top" class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 header-text">
+						<span>Top Secret is </span>
+						<span id="typed"></span>
+					</div>
+				</div>
+				@include('includes.message-block-alert')
+				<div class="row">
+					<div class="col-md-6 header-body header-body-text">
+						<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan sem ut augue consequat, 
+							non sollicitudin odio maximus. Nulla nec facilisis erat. Ut at pellentesque ex, eu posuere augue. 
+							Donec non lobortis nisi. Fusce sagittis interdum lectus. Pellentesque vitae libero vel nunc sodales 
+							porta. Nunc lacus diam, pretium eu augue at, placerat aliquet elit.</h3>
+					</div>
+					<div class="col-md-2"></div>
+					<div class="col-md-4 header-body">
+						<div class="panel panel-default panel-shadow">
+							<div class="panel-body">
+								<ul class="nav nav-tabs">
+									<li class="active"><a data-toggle="tab" href="#login">Login</a></li>
+									<li><a data-toggle="tab" href="#register">Register</a></li>
+								</ul>
+
+								<div class="tab-content">
+									<div id="login" class="tab-pane fade in active">
+										@include('includes.login-pane')
+									</div>
+									<div id="register" class="tab-pane fade">
+										@include('includes.register-pane')
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
 @endsection
