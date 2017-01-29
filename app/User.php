@@ -22,6 +22,6 @@ class User extends Model implements Authenticatable
     }
 
     public function fields(){
-        return $this->belongsToMany('App\Field', 'user_field')->withTimestamps();
+        return $this->belongsToMany('App\Field', 'user_field');
     }
 }
