@@ -10,9 +10,11 @@
         <p>We need to learn how to fill this up.</p>
         <form action="{{ route('sub_unsub', ['fieldname' => $field->name]) }}" method="post">
             <input type="hidden" name="_token" value="{{ Session::token() }}">
-            <button type="submit" class="btn btn-primary" name="button1">
+            @if(Auth::user() != null)
+			<button type="submit" class="btn btn-primary" name="button1">
                 {{ Auth::user() -> fields()->where('name', $field->name)->first() != null ? 'Unsubscribe' : 'Subscribe' }}
             </button>
+			@endif
         </form>
     </div>
     <p>Information about field goes here. Also a subcribe button</p>
