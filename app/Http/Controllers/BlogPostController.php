@@ -24,6 +24,7 @@ class BlogPostController extends Controller {
 
     public function postNewBlogPost(Request $request){
         $bpost = new BlogPost();
+		$bpost->title = $request['title'];
         $bpost->body = $request['body'];
 
         $message = 'There was an error.';

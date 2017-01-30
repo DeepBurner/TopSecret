@@ -39,7 +39,7 @@
 						<div class="timeline-badge lightblue"><i class="glyphicon glyphicon-pencil"></i></div>
 						<div class="timeline-panel">
 							<div class="timeline-heading">
-								<h4 class="timeline-title">Blog Post</h4>
+								<h4 class="timeline-title">{{ $blogpost->title }}</h4>
 								<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Posted by <a href="{{ route('account_real', ['username' =>  $blogpost->user->username]) }}">{{ $blogpost->user->username }}</a>  on {{ $blogpost->created_at }}</small></p>
 							</div>
 							<div class="timeline-body">

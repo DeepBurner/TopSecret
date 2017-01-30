@@ -23,6 +23,9 @@
             <h1>Add new blog post</h1>
             <form action="{{ route('panel.addblogpost') }}" method="post">
                 <div class="form-group">
+					<label for="fieldname">Title:</label>
+					<input class="form-control" type="text" name="title" id="title">
+					<label for="fieldname">Body:</label>
                     <textarea class="form-control" name="body" id="body"  rows="5" placeholder="Blog post"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Create Blog Post</button>
