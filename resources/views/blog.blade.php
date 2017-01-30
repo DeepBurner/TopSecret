@@ -13,27 +13,42 @@
     Blog
 @endsection
 
-@section('content')
-    <div class="col-md-12">
-        <div class="col-md-12 col-md-offset-3">
-            <h3>Latest News</h3>
-            <p>Here, you can find the latest news about the platform.</p>
-        </div>
-    </div>
-    <div class="col-md-12">
-        <section class="row posts">
-            <div class="col-md-6 col-md-offset-3">
-                <header><h3>What's going on?</h3></header>
-                @foreach($blogposts as $blogpost)
-                    <article class="post" data-postid="{{ $blogpost->id }}">
-                        <p>{{ $blogpost->body }}</p>
-                        <div class="info">
-                            Posted by {{ $blogpost->user->username }} on {{ $blogpost->created_at }}
-                        </div>
-                    </article>
-                @endforeach
+@section('header')
+	<div class="container-fluid header">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 align-middle">
+				<div class="header-text">
+					<h1>Latest News</h1>
+					<h4>Here, you can find the latest news about the platform.</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+@endsection
 
-            </div>
-        </section>
-    </div>
+@section('content')
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="timeline">
+					@foreach($blogposts as $index => $blogpost)	
+					@if ($index % 2 == 0)
+					<li>
+					@else
+					<li class="timeline-right">
+					@endif
+						<div class="timeline-badge lightblue"><i class="glyphicon glyphicon-pencil"></i></div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4 class="timeline-title">Blog Post</h4>
+								<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Posted by <a href="{{ route('account_real', ['username' =>  $blogpost->user->username]) }}">{{ $blogpost->user->username }}</a>  on {{ $blogpost->created_at }}</small></p>
+							</div>
+							<div class="timeline-body">
+								<p>{{ $blogpost->body }}</p>
+							</div>
+						</div>
+					</li>
+					@endforeach
+				</ul>
+			</div>
+		</div>
 @endsection

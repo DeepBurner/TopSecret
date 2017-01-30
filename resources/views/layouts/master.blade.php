@@ -8,12 +8,16 @@
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/bootstrap.min.css')}}">
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/main.css')}}">
         <!-- Fonts -->
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:100,600">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:regular">
     </head>
     <body>
 		<!-- Navigation -->
         @include('includes.navbar')
 		
+		<!-- Header -->
+		@yield('header')
+		
+		<!-- Page Content -->
         <div class="container">
             @yield('content')
         </div>
