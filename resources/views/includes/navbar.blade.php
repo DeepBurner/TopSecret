@@ -16,7 +16,6 @@
 					<ul class="nav navbar-nav navbar-left">
 						<li><a href="{{ route('blog') }}">Blog</a></li>
 						<li><a href="{{ route('catalog') }}">Catalog</a></li>
-						<li><a href="#">Send Feedback</a></li>
 					</ul>
 					
 					<form class="navbar-form navbar-left" action="" method="post">
