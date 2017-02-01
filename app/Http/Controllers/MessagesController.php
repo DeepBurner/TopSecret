@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use Carbon\Carbon;
+use Clockwork\Request\Request;
 use Cmgmyr\Messenger\Models\Message;
 use Cmgmyr\Messenger\Models\Participant;
 use Cmgmyr\Messenger\Models\Thread;
@@ -136,7 +137,7 @@ class MessagesController extends Controller
         return redirect('messages/' . $id);
     }
 
-    public function sendMessage($receiverid){
+    public function sendMessage(){
         $input = Input::all();
         $receiverid = $input['receiver'];
         $threads = Auth::user()->threads;

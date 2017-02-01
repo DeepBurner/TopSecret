@@ -7,10 +7,10 @@
         @foreach($thread->messages as $message)
             <div class="media">
                 <a class="pull-left" href="#">
-                    <img src="//www.gravatar.com/avatar/{{ md5($message->user->email) }} ?s=64" alt="{{ $message->user->name }}" class="img-circle">
+                    <img src="//www.gravatar.com/avatar/{{ md5($message->user->email) }} ?s=64" alt="{{ $message->user->username }}" class="img-circle">
                 </a>
                 <div class="media-body">
-                    <h5 class="media-heading">{{ $message->user->name }}</h5>
+                    <h5 class="media-heading"><strong>{{ $message->user->username }}</strong></h5>
                     <p>{{ $message->body }}</p>
                     <div class="text-muted"><small>Posted {{ $message->created_at->diffForHumans() }}</small></div>
                 </div>
