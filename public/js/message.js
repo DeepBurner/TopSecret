@@ -3,16 +3,16 @@ $('.message').on('click', function (event) {
     event.preventDefault();
 
     console.log('it works');
-    $('#post-body').val('Your message');
-    $('#edit-modal').modal();
+    $('#message-modal-body').val('Your message');
+    $('#message-modal').modal();
 });
 
-$('#modal-save').on('click', function () {
+$('#message-modal-send').on('click', function () {
     $.ajax({
         method: 'POST',
         url: urlEdit,
-        data: {message: $('#post-body').val(), receiver: recid, _token: token}
+        data: {message: $('#message-modal-body').val(), receiver: recid, _token: token}
     }).done(function (msg) {
-        $('#edit-modal').modal('hide');
+        $('#message-modal').modal('hide');
     });
 });

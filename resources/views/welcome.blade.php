@@ -1,25 +1,28 @@
-@extends('layouts.master-cover')
+@extends('layouts.master')
 
 @section('title')
 	Top Secret
 @endsection
 
-@section('content')<!-- Header -->
+@section('header')
 		<div id="top" class="cover-header">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12 cover-header-text">
+					<div class="col-md-12 cover-header-text no-select">
 						<span>Top Secret is </span>
 						<span id="typed"></span>
 					</div>
 				</div>
 				@include('includes.message-block-alert')
 				<div class="row">
-					<div class="col-md-6 cover-header-body cover-header-body-text">
-						<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan sem ut augue consequat, 
-							non sollicitudin odio maximus. Nulla nec facilisis erat. Ut at pellentesque ex, eu posuere augue. 
-							Donec non lobortis nisi. Fusce sagittis interdum lectus. Pellentesque vitae libero vel nunc sodales 
-							porta. Nunc lacus diam, pretium eu augue at, placerat aliquet elit.</h3>
+					<div class="col-md-6 cover-header-body">
+						<div class="cover-header-body-text no-select">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan sem ut augue consequat, 
+								non sollicitudin odio maximus. Nulla nec facilisis erat. Ut at pellentesque ex, eu posuere augue. 
+								Donec non lobortis nisi. Fusce sagittis interdum lectus. Pellentesque vitae libero vel nunc sodales 
+								porta. Nunc lacus diam, pretium eu augue at, placerat aliquet elit.
+							</h3>
+						</div>
 					</div>
 					<div class="col-md-2"></div>
 					<div class="col-md-4 cover-header-body">
@@ -44,4 +47,8 @@
 				</div>
 			</div>
 		</div>
+@endsection
+
+@section('script')
+		@include('includes.typed-script')
 @endsection
