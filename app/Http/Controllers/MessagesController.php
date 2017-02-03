@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\User;
+use App\ExtThread;
 use Carbon\Carbon;
 use Clockwork\Request\Request;
 use Cmgmyr\Messenger\Models\Message;
@@ -26,7 +27,12 @@ class MessagesController extends Controller
         //$threads = Thread::getAllLatest()->get();
         //$threads = Auth::user()->threads->orderBy('created_at', 'desc');
         // All threads that user is participating in
-        $threads = Thread::forUser($currentUserId)->latest('updated_at')->get();
+        $threads2 = Thread::forUser($currentUserId)->latest('updated_at')->get();
+
+        $threads = array();
+        foreach($threads2 as $thread){
+            array_push($threads, new ExtThread($thread));
+        }
         // All threads that user is participating in, with new messages
         //$threads = Thread::forUserWithNewMessages($currentUserId)->latest('updated_at')->get();
         return view('messenger.index', compact('threads', 'currentUserId'));
@@ -51,6 +57,8 @@ class MessagesController extends Controller
         $userId = Auth::user()->id;
         $users = User::whereNotIn('id', $thread->participantsUserIds($userId))->get();
         $thread->markAsRead($userId);
+
+        $thread = new ExtThread($thread);
         return view('messenger.show', compact('thread', 'users'));
     }
     /**

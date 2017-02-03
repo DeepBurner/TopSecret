@@ -7,7 +7,7 @@
         </div>
     @endif
     <div class="col-md-6 col-md-offset-3">
-    @if($threads->count() > 0)
+    @if(count($threads) > 0)
         @foreach($threads as $thread)
             <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
             <div class="media alert {{ $class }}">
