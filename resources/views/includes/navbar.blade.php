@@ -16,7 +16,6 @@
 					<ul class="nav navbar-nav navbar-left">
 						<li><a href="{{ route('blog') }}">Blog</a></li>
 						<li><a href="{{ route('catalog') }}">Catalog</a></li>
-						<li><a href="#">Send Feedback</a></li>
 					</ul>
 					
 					<form class="navbar-form navbar-left" action="" method="post">
@@ -28,7 +27,8 @@
 					<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest()) 
 						<li><a href="{{ route('register') }}">Sign in</a></li>
-					@else 
+					@else
+						<li class="active"><a href="{{URL::to('messages')}}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Messages @include('messenger.unread-count')</a></li>
 						<li><a href="{{ route('logout') }}">Logout</a></li>
 						<li><a href="{{ route('account_real', ['username' => Auth::user()->username]) }}">{{ Auth::user()->username }}</a></li>
 					@endif 
