@@ -18,6 +18,24 @@ body {
 	user-select: none;
 }
 
+/* Navbar */
+.caret-fixed {
+	position: absolute !important; 
+	top: 0; 
+	right: 0;
+}
+
+.dropdown-toggle.disabled {
+    padding-right: 40px;
+}
+
+.img-fixed {
+	padding-top: 9px !important;
+	padding-bottom: 8px !important;
+	line-height: 32px !important;
+	}
+
+
 /* Header */
 
 .cover-header {
