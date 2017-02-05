@@ -22,13 +22,16 @@
                     <input type="text" name="bio" class="form-control" value="{{ $user->bio }}" id="bio">
                 </div>
                 <div class="form-group row">
-					<div class="col-md-2">
-						<img class src="{{ route('account.image', $user->username) }}" alt="" class="img-responsive" style="height: 64px;">
+					<div class="col-md-3">
+						<img class src="{{ route('account.image', $user->username) }}" alt="" class="img-responsive" style="">
 					</div>
+					
 					<div class="col-md-6" style="padding: 6px;">
 						<label for="image">Image (only .jpg and .png)</label>
 						<input name="image" type="file" accept="image/jpeg, image/png">
 					</div>
+					
+
                 </div>
                 <button type="submit" class="btn btn-primary">Save Account</button>
                 <input type="hidden" value="{{ Session::token() }}" name="_token">
