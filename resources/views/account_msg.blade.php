@@ -23,7 +23,7 @@
                 </div>
                 <div class="form-group row">
 					<div class="col-md-3">
-						<img class src="{{ route('account.image', $user->username) }}" alt="" class="img-responsive" style="">
+						<img class src="{{ route('account.image', $user->username) }}" alt="" class="img-responsive">
 					</div>
 					
 					<div class="col-md-6" style="padding: 6px;">
