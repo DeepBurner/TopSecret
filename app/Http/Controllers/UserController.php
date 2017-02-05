@@ -8,6 +8,8 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller {
 
@@ -71,25 +73,68 @@ class UserController extends Controller {
         $this->validate($request, [
             'name' => 'max:30',
             'bio' => 'max:140',
-            'location' => 'max:30'
+            'location' => 'max:30',
+			'image' => 'image|mimes:jpeg,png|max:1024'
         ]);
         $user = Auth::user();
+		$file = $request->file('image');
+
         $user->name = $request['name'];
         $user->bio = $request['bio'];
         $user->location = $request['location'];
         $user->update();
-
-        $file = $request->file('image');
-        $filename = $request['username'] . '-' . $user->id . '.jpg';
+		
         if($file){
-            Storage::disk('local')->put($filename, File::get($file));
+			$jpgFilePath = '/user-images/' . $user->username . '-' . $user->id . '.jpg';
+			$pngFilePath = '/user-images/' . $user->username . '-' . $user->id . '.png';
+						
+			// Delete current image
+			if (Storage::disk('local')->has($jpgFilePath)) {
+				Storage::delete($jpgFilePath);
+			}
+			else if (Storage::disk('local')->has($pngFilePath)) {
+				Storage::delete($pngFilePath);
+			}
+			
+			// Manipulate new image
+			$newImage = Image::make(Input::file('image'));
+			$ratio = $newImage->height() / $newImage->width();
+			
+			if ($newImage->width() > $newImage->height()) {
+				$newImage->resize(128, 128 * $ratio);
+			}
+			else {
+				$newImage->resize(128 / $ratio, 128);
+			}
+			
+			// Upload new image
+			if ($file->getMimeType() == 'image/jpeg') {
+				Storage::disk('local')->put($jpgFilePath, $newImage->stream()->__toString());
+			}
+			else if ($file->getMimeType() == 'image/png') {
+				Storage::disk('local')->put($pngFilePath, $newImage->stream()->__toString());
+			}
         }
         return redirect() -> route('account');
     }
 
-    public function getUserImage($filename){
-        $file = Storage::disk('local')->get($filename);
-        return new Response($file, 200);
+    public function getUserImage($username){
+		$user = User::where('username', $username)->first();
+		$filePath = '/user-images/default.png';
+				
+		if ($user) {
+			$jpgFilePath = '/user-images/' . $user->username . '-' . $user->id . '.jpg';
+			$pngFilePath = '/user-images/' . $user->username . '-' . $user->id . '.png';
+		
+			if (Storage::disk('local')->has($jpgFilePath)) {
+				$filePath = $jpgFilePath;
+			}
+			else if (Storage::disk('local')->has($pngFilePath)) {
+				$filePath = $pngFilePath;
+			}
+		}
+		
+		return Storage::disk('local')->get($filePath);
     }
 
     public function getAdminPanel(){

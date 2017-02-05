@@ -86,7 +86,7 @@ Route::post('/updateaccount', [
     'middleware' => 'auth'
 ]);
 
-Route::get('/userimage/{filename}', [
+Route::get('/user-image/{username}', [
     'uses' => 'UserController@getUserImage',
     'as' => 'account.image',
     'middleware' => 'auth'
@@ -158,3 +158,5 @@ Route::get('/{username}', [
     'as' => 'account_real',
     'middleware' => 'auth'
 ]);
+
+Route::post('/uploadfile','UserController@uploadImage');
