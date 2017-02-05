@@ -32,7 +32,7 @@
 
 						<li class="dropdown">
 							<a class="dropdown-toggle disabled img-fixed" data-toggle="dropdown" href="{{ route('account_real', ['username' => Auth::user()->username]) }}">
-								<img src="//www.gravatar.com/avatar/{{ md5(Auth::user()->email) }} ?s=32" class="img-circle"> {{ Auth::user()->username }}
+								<img src="{{ route('account.image', Auth::user()->username) }}" class="img-circle"> {{ Auth::user()->username }}
 							</a>
 							<a class="dropdown-toggle caret-fixed" data-toggle="dropdown"><b class="caret"></b></a>
 

@@ -33,7 +33,11 @@ body {
 	padding-top: 9px !important;
 	padding-bottom: 8px !important;
 	line-height: 32px !important;
-	}
+}
+
+.img-fixed > .img-circle {
+	height: 32px !important;
+}
 
 
 /* Header */
