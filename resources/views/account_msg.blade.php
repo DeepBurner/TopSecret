@@ -33,6 +33,7 @@
 					</div>
                 </div>
                 <button type="submit" class="btn btn-primary">Save Account</button>
+				<input type="hidden" value="{{ Session::token() }}" name="_token">
             </form>
         </div>
     </section>
