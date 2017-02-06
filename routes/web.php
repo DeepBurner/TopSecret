@@ -158,5 +158,3 @@ Route::get('/{username}', [
     'as' => 'account_real',
     'middleware' => 'auth'
 ]);
-
-Route::post('/uploadfile','UserController@uploadImage');
