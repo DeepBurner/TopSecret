@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\Authenticatable;
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Cmgmyr\Messenger\Models\Message;
 use Cmgmyr\Messenger\Models\Participant;
@@ -13,6 +14,7 @@ class User extends Model implements Authenticatable
 {
     use \Illuminate\Auth\Authenticatable;
     use Messagable;
+    use Searchable;
 
     public function posts(){
         return $this->hasMany('App\Post');
@@ -28,5 +30,9 @@ class User extends Model implements Authenticatable
 
     public function fields(){
         return $this->belongsToMany('App\Field', 'user_field');
+    }
+
+    public function searchableAs() {
+        return 'users_index';
     }
 }

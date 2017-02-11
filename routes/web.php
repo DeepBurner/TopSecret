@@ -46,6 +46,11 @@ Route::post('/signup', [
     'as'=> 'signup'
 ]);
 
+Route::post('/search',[
+    'uses' => 'SearchController@postSearchRequest',
+    'as' => 'search',
+]);
+
 Route::post('/signin', [
     'uses' => 'UserController@postSignIn',
     'as'=> 'signin'
@@ -163,4 +168,6 @@ Route::get('/{username}', [
     'as' => 'account_real',
     'middleware' => 'auth'
 ]);
+
+
 
