@@ -104,6 +104,12 @@ Route::post('/like', [
     'middleware' => 'auth'
 ]);
 
+Route::any('forum_redir', [
+    'uses' => 'FieldsController@getForum',
+    'as' => 'fieldforum'
+]);
+
+
 Route::get('/adminpanel', [
     'uses' => 'UserController@getAdminPanel',
     'as' => 'adminpnl',
@@ -152,9 +158,9 @@ Route::post('sub_unsub',[
     'middlewate' => 'auth'
 ]);
 
-
 Route::get('/{username}', [
     'uses' => 'UserController@getAccount',
     'as' => 'account_real',
     'middleware' => 'auth'
 ]);
+

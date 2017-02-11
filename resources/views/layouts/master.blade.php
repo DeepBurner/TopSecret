@@ -9,6 +9,8 @@
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/main.css')}}">
         <!-- Fonts -->
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:regular">
+
+        @yield('head')
     </head>
     <body>
 		<!-- Navigation -->
@@ -34,5 +36,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="{{URL::asset('js/bootstrap.min.js') }}"></script>
         <script type="text/javascript" src="{{URL::asset('js/message.js') }}"></script>
+
     </body>
 </html>

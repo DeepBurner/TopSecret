@@ -9,7 +9,9 @@
         "laravel/framework": "5.3.*",
         "itsgoingd/clockwork": "~1.12",
         "cmgmyr/messenger": "~2.0",
-        "laravelcollective/html": "5.3.*"
+        "laravelcollective/html": "5.3.*",
+        "riari/laravel-forum": "~4.0",
+        "riari/laravel-forum-frontend": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
