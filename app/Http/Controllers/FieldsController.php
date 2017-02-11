@@ -54,7 +54,7 @@ class FieldsController extends CategoryController
         $id = null;
 
         switch ($fieldname){
-            case "YARRAK":
+            case "Yarrak":
                 $id = 1;
                 break;
             case "Kesf":
