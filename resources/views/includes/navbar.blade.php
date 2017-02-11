@@ -18,10 +18,11 @@
 						<li><a href="{{ route('catalog') }}">Catalog</a></li>
 					</ul>
 					
-					<form class="navbar-form navbar-left" action="" method="post">
+					<form class="navbar-form navbar-left" action="{{route('search')}}" method="post">
 						<div class="form-group" >
-							<input type="text" class="form-control" placeholder="Search">
+							<input type="text" class="form-control" placeholder="Search" name="to_search" id="to_search">
 						</div>
+						<input type="hidden" name="_token" value="{{ Session::token() }}">
 					</form>
 					
 					<ul class="nav navbar-nav navbar-right">

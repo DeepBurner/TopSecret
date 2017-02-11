@@ -158,3 +158,8 @@ Route::get('/{username}', [
     'as' => 'account_real',
     'middleware' => 'auth'
 ]);
+
+Route::post('/search',[
+    'uses' => 'SearchController@postSearchRequest',
+    'as' => 'search',
+]);
