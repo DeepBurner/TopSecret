@@ -11,7 +11,8 @@
         "cmgmyr/messenger": "~2.0",
         "laravelcollective/html": "5.3.*",
         "riari/laravel-forum": "~4.0",
-        "riari/laravel-forum-frontend": "~1.0"
+        "riari/laravel-forum-frontend": "~1.0",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
