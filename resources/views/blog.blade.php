@@ -16,7 +16,7 @@
 @section('header')
 	<div class="container-fluid header">
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3 align-middle">
+			<div class="col-md-6 col-md-offset-3">
 				<div class="header-text">
 					<h1>Latest News</h1>
 					<h4>Here, you can find the latest news about the platform.</h4>
@@ -39,7 +39,7 @@
 						<div class="timeline-badge lightblue"><i class="glyphicon glyphicon-pencil"></i></div>
 						<div class="timeline-panel">
 							<div class="timeline-heading">
-								<h4 class="timeline-title">{{ $blogpost->title }}</h4>
+								<h4 class="timeline-title"><strong>{{ $blogpost->title }}</strong></h4>
 								<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Posted by <a href="{{ route('account_real', ['username' =>  $blogpost->user->username]) }}">{{ $blogpost->user->username }}</a>  on {{ $blogpost->created_at }}</small></p>
 							</div>
 							<div class="timeline-body">

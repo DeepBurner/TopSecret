@@ -1,14 +1,14 @@
-@extends('layouts.master-cover')
+@extends('layouts.master')
 
 @section('title')
 	Register
 @endsection
 
-@section('content')<!-- Header -->
+@section('header')
 		<div id="top" class="cover-header">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12 cover-header-text">
+					<div class="col-md-12 cover-header-text no-select">
 						<span>Top Secret is </span>
 						<span id="typed"></span>
 					</div>
@@ -35,4 +35,8 @@
 				</div>
 			</div>
 		</div>
+@endsection
+
+@section('script')
+		@include('includes.typed-script')
 @endsection

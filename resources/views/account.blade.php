@@ -34,7 +34,7 @@
 
 
     <!-- modal for send message screen  -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
+    <div class="modal fade" tabindex="-1" role="dialog" id="message-modal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -44,14 +44,14 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label for="post-body">Edit the Post</label>
-                            <textarea class="form-control" name="post-body" id="post-body" rows="5"></textarea>
+                            <label for="message-modal-body">Edit the Post</label>
+                            <textarea class="form-control" name="message-modal-body" id="message-modal-body" rows="5"></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="modal-save">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="message-modal-send">Send Message</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -63,4 +63,8 @@
         var urlEdit = '{{ route('messages.send') }}';
         var recid = '{{ $user->id }}';
     </script>
+@endsection
+
+@section('script')
+	<script type="text/javascript" src="{{ URL::asset('js/message.js') }}"></script>
 @endsection

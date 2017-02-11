@@ -141,6 +141,8 @@ return [
          * Laravel Framework Service Providers...
          */
         'Clockwork\Support\Laravel\ClockworkServiceProvider',
+        Riari\Forum\ForumServiceProvider::class,
+        Riari\Forum\Frontend\ForumFrontendServiceProvider::class,
         Cmgmyr\Messenger\MessengerServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
@@ -168,8 +170,9 @@ return [
 
         /*
          * Package Service Providers...
+		 
          */
-
+		Intervention\Image\ImageServiceProvider::class,
         //
 
         /*
@@ -231,7 +234,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+		'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];

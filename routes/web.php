@@ -46,6 +46,11 @@ Route::post('/signup', [
     'as'=> 'signup'
 ]);
 
+Route::post('/search',[
+    'uses' => 'SearchController@postSearchRequest',
+    'as' => 'search',
+]);
+
 Route::post('/signin', [
     'uses' => 'UserController@postSignIn',
     'as'=> 'signin'
@@ -86,7 +91,7 @@ Route::post('/updateaccount', [
     'middleware' => 'auth'
 ]);
 
-Route::get('/userimage/{filename}', [
+Route::get('/user-image/{username}', [
     'uses' => 'UserController@getUserImage',
     'as' => 'account.image',
     'middleware' => 'auth'
@@ -103,6 +108,12 @@ Route::post('/like', [
     'as' => 'like',
     'middleware' => 'auth'
 ]);
+
+Route::any('forum_redir', [
+    'uses' => 'FieldsController@getForum',
+    'as' => 'fieldforum'
+]);
+
 
 Route::get('/adminpanel', [
     'uses' => 'UserController@getAdminPanel',
@@ -152,14 +163,11 @@ Route::post('sub_unsub',[
     'middlewate' => 'auth'
 ]);
 
-
 Route::get('/{username}', [
     'uses' => 'UserController@getAccount',
     'as' => 'account_real',
     'middleware' => 'auth'
 ]);
 
-Route::post('/search',[
-    'uses' => 'SearchController@postSearchRequest',
-    'as' => 'search',
-]);
+
+

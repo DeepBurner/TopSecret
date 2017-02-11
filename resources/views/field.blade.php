@@ -17,6 +17,6 @@
             @endif
         </form>
     </div>
-    <p>Information about field goes here. Also a subcribe button</p>
+    <p><a href="{{ route('fieldforum', ['name' => $field->name]) }}">FORUM</a></p>
     <p>Show forums, learning center and ongoing projects sections here. TODO</p>
 @endsection

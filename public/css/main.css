@@ -1,4 +1,4 @@
-/* Headers */
+/* Global */
 
 html, body {
     width: 100%;
@@ -7,8 +7,41 @@ html, body {
 
 body {
 	font-family: 'Raleway', serif;
-	font-weight: regular;
 }
+
+.no-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Navbar */
+.caret-fixed {
+	position: absolute !important; 
+	top: 0; 
+	right: 0;
+}
+
+.dropdown-toggle.disabled {
+    padding-right: 40px;
+}
+
+.img-fixed {
+	padding-top: 9px !important;
+	padding-bottom: 8px !important;
+	line-height: 32px !important;
+}
+
+.img-fixed > .img-circle {
+	height: 32px !important;
+	width: 32px !important;
+}
+
+
+/* Header */
 
 .cover-header {
     display: table;
@@ -59,12 +92,14 @@ body {
 	margin-top: 1em;
 	font-size: 4.5em;
 }
+
 @media (max-width: 767px) {
 	.header-text> h1 {
 		margin-top: 2em;
 		font-size: 2.5em;
 	}
 }
+
 /* Typed */
 
 .type-body{
@@ -213,25 +248,6 @@ body {
 	right: auto;
 }
 
-.timeline-badge.primary {
-    background-color: #2e6da4 !important;
-}
-
-.timeline-badge.success {
-    background-color: #3f903f !important;
-}
-
-.timeline-badge.warning {
-    background-color: #f0ad4e !important;
-}
-
-.timeline-badge.danger {
-    background-color: #d9534f !important;
-}
-
-.timeline-badge.info {
-    background-color: #5bc0de !important;
-}
 .timeline-badge.lightblue {
     background-color: #add8e6 !important;
 }
