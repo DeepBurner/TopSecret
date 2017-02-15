@@ -1,4 +1,4 @@
-@extends('layouts.master-cover')
+@extends('layouts.master')
 
 @section('title')
     Search Results
@@ -7,7 +7,7 @@
 @section('content')
     <ul>
         @foreach($users as $user)
-        <li>{{ $user }}</li>
+        <li>{{ $user->username }}</li>
         @endforeach
     </ul>
 
