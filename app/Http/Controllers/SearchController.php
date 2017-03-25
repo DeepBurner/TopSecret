@@ -32,6 +32,6 @@ class SearchController extends Controller
         $users = $this->searchUser($toSearch);
         $posts = $this->searchPost($toSearch);
         $fields = $this->searchField($toSearch);
-        return view('search_results')->with(['users' => $users, 'posts' => $posts, 'fields' => $fields]);
+        return view('search_results')->with(['users' => $users, 'posts' => $posts, 'fields' => $fields, 'query' => $toSearch]);
     }
 }

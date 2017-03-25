@@ -18,18 +18,15 @@
 						<li><a href="{{ route('catalog') }}">Catalog</a></li>
 						<li><a href="{{ route('forum.index') }}">Forum</a></li>
 					</ul>				
-					<form class="navbar-form navbar-left" action="{{route('search')}}" method="post">
-						<div class="form-group" >
-							<input type="text" class="form-control" placeholder="Search" name="to_search" id="to_search">
-						</div>
-						<input type="hidden" name="_token" value="{{ Session::token() }}">
-					</form>
 
 					<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
 						<li><a href="{{ route('register') }}">Sign in</a></li>
 					@else
-						<li class="active"><a href="{{URL::to('messages')}}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Messages @include('messenger.unread-count')</a></li>
+						@if (Auth::user()->user_level == 'admin')
+								<li><a href="{{ route('adminpnl') }}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Admin Panel</a></li>
+						@endif
+						<li><a href="{{URL::to('messages')}}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Messages @include('messenger.unread-count')</a></li>
 
 						<li class="dropdown">
 							<a class="dropdown-toggle disabled img-fixed" data-toggle="dropdown" href="{{ route('account_real', ['username' => Auth::user()->username]) }}">

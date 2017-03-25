@@ -45,6 +45,13 @@ class MessagesController extends Controller
      */
     public function show($id)
     {
+		$currentUserId = Auth::user()->id;
+		$threadsTemp = Thread::forUser($currentUserId)->latest('updated_at')->get();
+		$threads = array();
+        foreach($threadsTemp as $threadTemp){
+            array_push($threads, new ExtThread($threadTemp));
+        }
+		
         try {
             $thread = Thread::findOrFail($id);
         } catch (ModelNotFoundException $e) {
@@ -57,9 +64,9 @@ class MessagesController extends Controller
         $userId = Auth::user()->id;
         $users = User::whereNotIn('id', $thread->participantsUserIds($userId))->get();
         $thread->markAsRead($userId);
-
+		
         $thread = new ExtThread($thread);
-        return view('messenger.show', compact('thread', 'users'));
+        return view('messenger.show', compact('threads', 'currentUserId', 'thread', 'users'));
     }
     /**
      * Creates a new message thread.

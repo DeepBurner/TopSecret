@@ -97,6 +97,11 @@ Route::get('/user-image/{username}', [
     'middleware' => 'auth'
 ]);
 
+Route::get('/field-image/{fieldname}', [
+    'uses' => 'FieldsController@getFieldImage',
+    'as' => 'field.image'
+]);
+
 Route::post('/edit', [
     'uses' => 'PostController@postEditPost',
     'as' => 'edit',
@@ -131,6 +136,11 @@ Route::post('addblogpost', [
     'as' => 'panel.addblogpost'
 ]);
 
+Route::post('adduser', [
+    'uses' => 'UserController@postPanelNewUser',
+    'as' => 'panel.adduser'
+]);
+
 Route::group(['prefix' => 'messages'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
     Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
@@ -149,7 +159,6 @@ Route::get('/blog', [
     'uses' => 'BlogPostController@getBlog',
     'as' => 'blog'
 ]);
-
 
 Route::get('/catalog',[
     'uses' => 'FieldsController@getCatalog',

@@ -9,6 +9,7 @@ use App\Post;
 use App\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Riari\Forum\Models\Category;
 use Riari\Forum\Http\Controllers\API\CategoryController;
 
@@ -28,6 +29,7 @@ class FieldsController extends CategoryController
     public function postAddField(Request $request){
         $field = new Field();
         $field->name = $request['fieldname'];
+		$field->desc = $request['description'];
         $field -> save();
 
         $message = 'Field added.';
@@ -84,5 +86,24 @@ class FieldsController extends CategoryController
         }
 
         return $category;
+    }
+	
+	public function getFieldImage($fieldname){
+		$field = Field::where('name', $fieldname)->first();
+		$filePath = '/field-images/default.png';
+				
+		if ($field) {
+			$jpgFilePath = '/field-images/' . $field->name . '-' . $field->id . '.jpg';
+			$pngFilePath = '/field-images/' . $field->name . '-' . $field->id . '.png';
+		
+			if (Storage::disk('local')->has($jpgFilePath)) {
+				$filePath = $jpgFilePath;
+			}
+			else if (Storage::disk('local')->has($pngFilePath)) {
+				$filePath = $pngFilePath;
+			}
+		}
+		
+		return Storage::disk('local')->get($filePath);
     }
 }

@@ -1,0 +1,80 @@
+/* Background Color */
+body {
+	background-color: #f4f4f4;
+}
+
+/* Navbar Color */
+.navbar-inverse {
+	background: transparent;
+	border-bottom: none;
+	color: rgba(51,51,51,1);
+}
+
+/* Navbar Collapsed Color */
+@media (max-width: 767px) {
+	.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+		border-color: transparent;
+		background: #333333;
+	}
+}
+
+/* Header Color */
+.header {
+	background-color: #aaddcf; /* #aaddcf 35AE8D */
+}
+
+/* Input Form Focus Color */
+.form-control:focus {
+	border-color: #aaddcf;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(170, 221, 207, .6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(170, 221, 207, .6);
+}
+
+/* Button Color */
+.btn-primary {
+	background: #aaddcf;
+	border-color: #aaddcf;
+}
+
+.btn-primary:hover {
+	background: #8cbfb1;
+	border-color: #8cbfb1;
+}
+
+/* Navbar Link Color */
+.navbar ul.nav a { 
+	color: #ffffff !important; 
+}
+
+.navbar ul.nav a:hover { 
+	color: #999999 !important;
+}
+
+/* Navbar Brand Color */
+a.navbar-brand {
+	color: #ffffff !important; 
+}
+
+a.navbar-brand:hover {
+	color: #999999 !important; 
+}
+
+/* Navbar Dropdown Colors */
+.open .dropdown-toggle {
+	background:#8cbfb1 !important;
+	color:#ffffff !important;
+}
+
+ul.nav .dropdown-menu a { 
+	color: #666666 !important; 
+}
+
+/* Link Color */
+.panel-body a {
+	color: #8cbfb1 !important; 
+}
+
+.panel-body .active a {
+	color: #999999 !important; 
+}
