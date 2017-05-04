@@ -20,6 +20,7 @@ class CreateForumTableThreads extends Migration
             $table->string('title');
             $table->boolean('pinned');
             $table->boolean('locked');
+            $table->integer('hotness')->default(0);
 
             $table->timestamps();
             $table->softDeletes();
