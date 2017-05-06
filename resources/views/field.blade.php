@@ -34,7 +34,7 @@
 		
 		<div class="panel panel-default panel-modular">
 			<div class="panel-heading">Sources</div>
-			<div class="panel-body">!! Work in progress !!</div>
+			<div class="panel-body"><a href="{{ route('sources', ['field_name' => $field->name]) }}">Here be the sources</a></div>
 		</div>
 		
 		<div class="panel panel-default panel-modular">

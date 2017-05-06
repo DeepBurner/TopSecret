@@ -16,6 +16,10 @@ class Field extends Model
         return $this->belongsToMany('App\User', 'user_field');
     }
 
+    public function sections(){
+        return $this->hasMany('App\Section');
+    }
+
     public function searchableAs() {
         return 'fields_index';
     }

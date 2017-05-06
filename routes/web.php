@@ -169,12 +169,24 @@ Route::get('/catalog',[
 Route::post('sub_unsub',[
     'uses' => 'FieldsController@getSub',
     'as' => 'sub_unsub',
-    'middlewate' => 'auth'
+    'middleware' => 'auth'
 ]);
 
 Route::get('/{username}', [
     'uses' => 'UserController@getAccount',
     'as' => 'account_real',
+    'middleware' => 'auth'
+]);
+
+Route::get('/fields/{field_name}/sources/', [
+    'uses' => 'SourcesController@getFieldSources',
+    'as' => 'sources',
+    'middleware' => 'auth'
+]);
+
+Route::get('/fields/{field_name}/sources/{id}', [
+    'uses' => 'SourcesController@getFieldSection',
+    'as' => 'sources.section',
     'middleware' => 'auth'
 ]);
 
