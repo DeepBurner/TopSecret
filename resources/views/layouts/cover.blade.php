@@ -5,7 +5,7 @@
 		
         <!-- Stylesheets -->
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/bootstrap.min.css')}}">
-		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/main.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{URL::asset('themes/simurg/css/main.css')}}">
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/theme.green.css')}}">
         <!-- Fonts -->
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:regular">

@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.main')
 
-@section('content')
+@section('page-content')
     @include('includes.message-block-alert')
     <div class="col-md-8">
     <section class="row new-post">

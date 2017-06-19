@@ -1,4 +1,4 @@
-@extends('layouts.modular')
+@extends('layouts.main')
 
 @section('title')
     Account Settings
@@ -9,14 +9,7 @@
 		<h4></h4>
 @endsection
 
-@section('left-column')
-		<div class="panel panel-default panel-modular">
-			<div class="panel-heading">Advanced Settings</div>
-			<div class="panel-body">!! Work in progress !!</div>
-		</div>
-@endsection
-
-@section('right-column')
+@section('page-content')
 		<div class="panel panel-default panel-modular">
 			<div class="panel-heading">Settings</div>
 			<div class="panel-body">

@@ -43,6 +43,10 @@ class UserController extends Controller {
     }
 	
 	public function postPanelNewUser (Request $request){
+		if(Auth::user() == null || Auth::user()->user_level != 'admin'){
+            return redirect()->back();
+        }
+		
 		$this->validate($request, [
             'email' => 'email|unique:users,email|required',
             'username' => 'required|unique:users,username|max:30',
@@ -58,10 +62,14 @@ class UserController extends Controller {
         $user->username = $username;
         $user->password = $password;
 		
+		$user->bio = '';
+        $user->location = '';
+        $user->name = '';
+		
 		$user->save();
 		$message = 'User created.';
 		
-		return redirect() -> route('adminpnl') -> with(['message' => $message]);
+		return redirect() -> route('account_real', $username) -> with(['message' => $message]);
 	}
 
     public function postSignIn(Request $request){

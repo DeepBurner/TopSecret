@@ -27,6 +27,15 @@ class FieldsController extends CategoryController
     }
 
     public function postAddField(Request $request){
+		if(Auth::user() == null || Auth::user()->user_level != 'admin'){
+            return redirect()->back();
+        }
+		
+		$this->validate($request, [
+            'fieldname' => 'required|unique:fields,name',
+            'description' => 'required'
+        ]);
+
         $field = new Field();
         $field->name = $request['fieldname'];
 		$field->desc = $request['description'];
@@ -34,7 +43,7 @@ class FieldsController extends CategoryController
 
         $message = 'Field added.';
 
-        return redirect() -> route('adminpnl') -> with(['message' => $message]);
+        return redirect() -> route('catalog') -> with(['message' => $message]);
     }
 
     public function getSub(Request $request){

@@ -23,6 +23,15 @@ class BlogPostController extends Controller {
     }
 
     public function postNewBlogPost(Request $request){
+		if(Auth::user() == null || Auth::user()->user_level != 'admin'){
+            return redirect()->back();
+        }
+		
+		$this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+		
         $bpost = new BlogPost();
 		$bpost->title = $request['title'];
         $bpost->body = $request['body'];
@@ -32,6 +41,6 @@ class BlogPostController extends Controller {
         if(Auth::user()->blogposts()->save($bpost)){
             $message = 'Post created.';
         }
-        return redirect() -> route('adminpnl') -> with(['message' => $message]);
+        return redirect() -> route('blog') -> with(['message' => $message]);
     }
 }

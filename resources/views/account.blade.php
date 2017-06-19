@@ -1,4 +1,4 @@
-@extends('layouts.modular')
+@extends('layouts.main')
 
 @section('title')
     Account
@@ -7,10 +7,7 @@
 @section('header')
 		<h1>{{ $user->username }}</h1>
 		<h4></h4>
-@endsection							
-
-@section('header.top')
-@endsection		
+@endsection								
 
 @section('left-column')
 		<div class="panel panel-default panel-modular">
@@ -56,7 +53,7 @@
     </script>
 @endsection
 
-@section('content')
+@section('page-content')
     <div class="container">
         <div class="row">
             <div class="col-md-8">

@@ -1,4 +1,4 @@
-@extends('layouts.modular')
+@extends('layouts.main')
 
 @section('title')
     {{ $field->name }}
@@ -9,7 +9,7 @@
 		<h4>{{ $field->desc }}</h4>
 @endsection
 
-@section('left-column')
+@section('page-content')
 		<div class="panel panel-default panel-modular">
 			<div class="panel-heading">Field Menu</div>
 			<div class="panel-body">!! Work in progress !!</br></br>
@@ -24,9 +24,7 @@
 				</form>
 			</div>
 		</div>
-@endsection
 
-@section('right-column')
 		<div class="panel panel-default panel-modular">
 			<div class="panel-heading">Forum</div>
 			<div class="panel-body">!! Work in progress !!</div>

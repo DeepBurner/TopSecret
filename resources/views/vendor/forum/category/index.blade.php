@@ -6,33 +6,50 @@
         @include ('forum::category.partials.form-create')
     @endcan
 
-
-    <h2>{{ trans('forum::general.index') }}</h2>
-
     @foreach ($categories as $category)
-        <table class="table table-index">
-            <thead>
-                <tr>
-                    <th>{{ trans_choice('forum::categories.category', 1) }}</th>
-                    <th class="col-md-2">{{ trans_choice('forum::threads.thread', 2) }}</th>
-                    <th class="col-md-2">{{ trans_choice('forum::posts.post', 2) }}</th>
-                    <th class="col-md-2">{{ trans('forum::threads.newest') }}</th>
-                    <th class="col-md-2">{{ trans('forum::posts.last') }}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="category">
-                    @include ('forum::category.partials.list', ['titleClass' => 'lead'])
-                </tr>
-                @if (!$category->children->isEmpty())
-                    <tr>
-                        <th colspan="5">{{ trans('forum::categories.subcategories') }}</th>
-                    </tr>
-                    @foreach ($category->children as $subcategory)
-                        @include ('forum::category.partials.list', ['category' => $subcategory])
-                    @endforeach
-                @endif
-            </tbody>
-        </table>
+		<div class="panel panel-default">
+			<div class="panel-heading panel-heading-forum">
+				{{$category->title}}
+			</div>
+			<div class="panel-body panel-body-forum">
+				@foreach ($category->children as $subcategory)
+					<div class="col-md-6 forum-col">
+						<div class="media">
+							<div class="media-left">
+								<a href="{{ Forum::route('category.show', $subcategory) }}">
+									<img class="media-object forum-icon" src="{{URL::asset('themes/simurg/img/forum-icon.png')}}" alt="img">
+								</a>
+							</div>
+							<div class="media-body">
+								<a href="{{ Forum::route('category.show', $subcategory) }}">
+									<h4 class="media-heading">{{$subcategory->title}}</h4>
+								</a>
+								{{$subcategory->description}}
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2 forum-prop">
+						<div class="forum-topics">{{$subcategory->thread_count}}</br>Threads</div>
+					</div>
+					<div class="col-md-2 forum-prop">
+						<div class="forum-topics">{{$subcategory->post_count}}</br>Posts</div>
+					</div>
+					<div class="col-md-2 forum-prop">
+						<div class="forum-topics">No new topics</div>
+					</div>
+					@if ($subcategory != $category->children->last())
+						<div class="col-md-12">
+							<hr class="forum-divider">
+						</div>
+					@endif
+				
+                @endforeach
+				@if ($category->children->isEmpty())
+					<div class="forum-empty">No categories found</div>
+				@endif
+			</div>
+		</div>
+	
+        
     @endforeach
 @stop
