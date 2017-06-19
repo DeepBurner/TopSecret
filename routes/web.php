@@ -46,6 +46,11 @@ Route::post('/signup', [
     'as'=> 'signup'
 ]);
 
+Route::post('/search',[
+    'uses' => 'SearchController@postSearchRequest',
+    'as' => 'search',
+]);
+
 Route::post('/signin', [
     'uses' => 'UserController@postSignIn',
     'as'=> 'signin'
@@ -92,6 +97,11 @@ Route::get('/user-image/{username}', [
     'middleware' => 'auth'
 ]);
 
+Route::get('/field-image/{fieldname}', [
+    'uses' => 'FieldsController@getFieldImage',
+    'as' => 'field.image'
+]);
+
 Route::post('/edit', [
     'uses' => 'PostController@postEditPost',
     'as' => 'edit',
@@ -103,6 +113,12 @@ Route::post('/like', [
     'as' => 'like',
     'middleware' => 'auth'
 ]);
+
+Route::any('forum_redir', [
+    'uses' => 'FieldsController@getForum',
+    'as' => 'fieldforum'
+]);
+
 
 Route::get('/adminpanel', [
     'uses' => 'UserController@getAdminPanel',
@@ -118,6 +134,11 @@ Route::post('addfield', [
 Route::post('addblogpost', [
     'uses' => 'BlogPostController@postNewBlogPost',
     'as' => 'panel.addblogpost'
+]);
+
+Route::post('adduser', [
+    'uses' => 'UserController@postPanelNewUser',
+    'as' => 'panel.adduser'
 ]);
 
 Route::group(['prefix' => 'messages'], function () {
@@ -139,7 +160,6 @@ Route::get('/blog', [
     'as' => 'blog'
 ]);
 
-
 Route::get('/catalog',[
     'uses' => 'FieldsController@getCatalog',
     'as' => 'catalog',
@@ -149,12 +169,26 @@ Route::get('/catalog',[
 Route::post('sub_unsub',[
     'uses' => 'FieldsController@getSub',
     'as' => 'sub_unsub',
-    'middlewate' => 'auth'
+    'middleware' => 'auth'
 ]);
-
 
 Route::get('/{username}', [
     'uses' => 'UserController@getAccount',
     'as' => 'account_real',
     'middleware' => 'auth'
 ]);
+
+Route::get('/fields/{field_name}/sources/', [
+    'uses' => 'SourcesController@getFieldSources',
+    'as' => 'sources',
+    'middleware' => 'auth'
+]);
+
+Route::get('/fields/{field_name}/sources/{id}', [
+    'uses' => 'SourcesController@getFieldSection',
+    'as' => 'sources.section',
+    'middleware' => 'auth'
+]);
+
+
+

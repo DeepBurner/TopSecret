@@ -8,6 +8,8 @@
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/main.css')}}">
         <!-- Fonts -->
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:regular">
+
+        @yield('head')
     </head>
     <body>
 		<!-- Navigation -->

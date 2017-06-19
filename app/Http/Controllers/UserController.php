@@ -41,6 +41,28 @@ class UserController extends Controller {
         return redirect()->route('dashboard');
 
     }
+	
+	public function postPanelNewUser (Request $request){
+		$this->validate($request, [
+            'email' => 'email|unique:users,email|required',
+            'username' => 'required|unique:users,username|max:30',
+            'password' => 'required|min:4'
+        ]);
+		
+		$email = $request['email'];
+        $username = $request['username'];
+        $password = bcrypt($request['password']);
+		
+		$user = new User();
+        $user->email = $email;
+        $user->username = $username;
+        $user->password = $password;
+		
+		$user->save();
+		$message = 'User created.';
+		
+		return redirect() -> route('adminpnl') -> with(['message' => $message]);
+	}
 
     public function postSignIn(Request $request){
 

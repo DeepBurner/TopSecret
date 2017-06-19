@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Cmgmyr\Messenger\Models\Thread;
+
 class ExtThread extends Thread{
 
     public function __construct(Thread $thread)

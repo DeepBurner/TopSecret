@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.cover')
 
 @section('title')
 	Register
@@ -34,7 +34,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>	
+		
+		<script>navFix = 1;</script>
 @endsection
 
 @section('script')
